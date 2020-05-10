@@ -7,6 +7,7 @@ var sassMiddleware = require('node-sass-middleware');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -27,6 +28,7 @@ app.use(require('express-session')({
     saveUninitialized: false
 }));
 app.use(passport.initialize());
+app.use(flash());
 app.use(passport.session());
 app.use(sassMiddleware({
   src: path.join(__dirname, 'public'),
