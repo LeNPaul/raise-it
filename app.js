@@ -46,7 +46,10 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-mongoose.connect('mongodb://localhost/raise_it');
+mongoose.connect('mongodb://localhost/raise_it', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
