@@ -27,14 +27,10 @@ html
           li.nav-item
             a.nav-link.disabled(href='#' tabindex='-1' aria-disabled='true') Disabled
           li.nav-item.dropdown
-            a#dropdown01.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Dropdown
+            a#dropdown01.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') User
             .dropdown-menu(aria-labelledby='dropdown01')
-              a.dropdown-item(href='#') Action
-              a.dropdown-item(href='#') Another action
-              a.dropdown-item(href='#') Something else here
-        form.form-inline.my-2.my-lg-0
-          input.form-control.mr-sm-2(type='text' placeholder='Search' aria-label='Search')
-          button.btn.btn-secondary.my-2.my-sm-0(type='submit') Search
+              a.dropdown-item(href='/login') Login
+              a.dropdown-item(href='/register') Register
           
   script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
   script.
