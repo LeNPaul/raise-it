@@ -25,11 +25,16 @@ html
               a.nav-link(href='#') About
             li.nav-item.active
               a.nav-link(href='#') Contact
-          ul.navbar-nav.ml-auto
-            li.nav-item.active
-              a.nav-link(href='/login') Login
-            li.nav-item.active
-              a.nav-link(href='/register') Register
+          if (!user)
+            ul.navbar-nav.ml-auto
+              li.nav-item.active
+                a.nav-link(href='/login') Login
+              li.nav-item.active
+                a.nav-link(href='/register') Register
+          if (user)
+            ul.navbar-nav.ml-auto
+              li.nav-item.active
+                a.nav-link(href='/logout') Logout
     
     .container      
       footer.pt-4.my-md-5.pt-md-5.border-top
@@ -48,10 +53,14 @@ html
                 a.text-muted(href='#') About
               li
                 a.text-muted(href='#') Contact
-              li
-                a.text-muted(href='/login') Login
-              li
-                a.text-muted(href='/register') Register
+              if (!user)
+                li
+                  a.text-muted(href='/login') Login
+                li
+                  a.text-muted(href='/register') Register
+              if (user)
+                li
+                  a.text-muted(href='/logout') Logout                
                 
   script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
   script.
