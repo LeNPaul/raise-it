@@ -5,10 +5,9 @@ const Sessions = new Schema({
   session_id: String,
   session_name: String,
   session_description: String,
-  session_location: String,
-  session_url: String,
   host_name: String,
-  state_date_time: Date,
+  host_contact_info: String,
+  start_date_time: Date,
   end_date_time: Date
 });
 
