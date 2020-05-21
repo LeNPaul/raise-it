@@ -2,5 +2,21 @@ extends layout
 
 block content
     
-  h1 Start New Session
-  p.lead.text-muted Easily ask questions during presentations.
+  div.row.justify-content-md-center
+    div.col-lg-8
+      h1 Start New Session
+      p.lead.text-muted Allow audience members to ask questions during a presentation.
+      form
+        .form-group
+          label(for='inputSessionName') Session Name
+          input#inputSessionName.form-control(type='text')
+        .form-group
+          label(for='inputSessionDescription') Session Description
+          input#inputSessionDescription.form-control(type='text')
+        .form-group
+          label(for='inputHostName') Host Name
+          input#inputHostName.form-control(type='text')
+        .form-group
+          label(for='inputHostContact') Host Contact Information
+          input#inputHostContact.form-control(type='text')
+        button.btn.btn-primary(type='submit') Start
