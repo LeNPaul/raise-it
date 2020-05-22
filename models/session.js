@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Sessions = new Schema({
+const Session = new Schema({
   session_id: String,
   session_name: String,
   session_description: String,
@@ -11,4 +11,4 @@ const Sessions = new Schema({
   end_date_time: Date
 });
 
-module.exports = mongoose.model('sessions', Sessions);
+module.exports = mongoose.model('session', Session);
