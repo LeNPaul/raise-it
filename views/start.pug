@@ -23,5 +23,5 @@ block content
             | This is optional and used for audience members to contact the host 
             i after 
             | the presentation.
-        button.btn.btn-primary(type='submit') Start
-        p {{ sessionName }} {{ sessionDescription }} {{ hostName }} {{ hostContact }}
+        button.btn.btn-primary(v-on:click='startSession' type='button') Start
+        p {{ sessionInformation }}

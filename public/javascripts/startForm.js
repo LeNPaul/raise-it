@@ -1,9 +1,16 @@
 var formApp = new Vue({
   el: '#formApp',
   data: {
-    sessionName: '',
-    sessionDescription: '',
-    hostName: '',
-    hostContact: ''
+    sessionInformation: null,
+    sessionName: null,
+    sessionDescription: null,
+    hostName: null,
+    hostContact: null,
+  },
+  methods: {
+    startSession: function() {
+      axios
+        .post('/session/start/' + this.sessionName, {}).then(response => this.sessionInformation = response.data)
+    }
   }
 })
