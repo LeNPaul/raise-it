@@ -2,25 +2,26 @@ extends layout
 
 block content
     
-  div.row.justify-content-md-center
+  div(id='formApp').row.justify-content-md-center
     div.col-lg-8
       h1 Start New Session
       p.lead.text-muted Allow audience members to ask questions during a presentation.
       form
         .form-group
           label(for='inputSessionName') Session Name
-          input#inputSessionName.form-control(type='text')
+          input#inputSessionName.form-control(type='text', v-model='sessionName')
         .form-group
           label(for='inputSessionDescription') Session Description
-          input#inputSessionDescription.form-control(type='text')
+          input#inputSessionDescription.form-control(type='text', v-model='sessionDescription')
         .form-group
           label(for='inputHostName') Host Name
-          input#inputHostName.form-control(type='text')
+          input#inputHostName.form-control(type='text', v-model='hostName')
         .form-group
           label(for='inputHostContact') Host Contact Information
-          input#inputHostContact.form-control(type='text')
+          input#inputHostContact.form-control(type='text', v-model='hostContact')
           small(id="hostContactHelp" class="form-text text-muted") 
             | This is optional and used for audience members to contact the host 
             i after 
             | the presentation.
         button.btn.btn-primary(type='submit') Start
+        p {{ sessionName }} {{ sessionDescription }} {{ hostName }} {{ hostContact }}
