@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    
+  div(id='formApp').row.justify-content-md-center
+    div.col-lg-8
+      h1 Session
+      p.lead.text-muted This is a running session #{ session_id }
+
+  script(src='/javascripts/startForm.js')
