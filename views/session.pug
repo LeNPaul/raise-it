@@ -6,5 +6,8 @@ block content
     div.col-lg-8
       h1 Session
       p.lead.text-muted This is a running session #{ session_id }
+      
+      ul
+        li(v-for='question in questions') {{ question.message }}
 
   script(src='/javascripts/session.js')
