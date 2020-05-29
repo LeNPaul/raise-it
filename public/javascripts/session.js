@@ -7,6 +7,9 @@ var sessionApp = new Vue({
     ]
   },
   methods: {
-
+    getQuestions: function(session_id) {
+      axios
+        .get('/session/questions/' + session_id).then(response => console.log(response.data))
+    }
   }
 })
