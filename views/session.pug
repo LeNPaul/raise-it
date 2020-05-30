@@ -9,5 +9,8 @@ block content
       
       ul
         li(v-for='question in questions') {{ question.message }}
+        
+      div(class='card' v-for='question in questions')
+        div(class='card-body') {{ question.message }}
 
   script(src='/javascripts/session.js')
