@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Session = require('../models/session');
+var Question = require('../models/question')
 
 /* GET page for starting session. */
 router.get('/start', function(req, res) {
@@ -40,6 +41,31 @@ router.post('/start', (req, res) => {
 /* GET page for viewing session */
 router.get('/:session_id', function(req, res) {
   res.render('session', { user : req.user , session_id: req.params.session_id});
+})
+
+/* GET questions from the audience for a session */
+router.get('/questions/:session_id', function(req, res) {
+
+/* Create new question
+  var newQuestion = new Question({
+    session_id: '1234',
+    question_id: '1234',
+    question_text: 'This is placeholder question text',
+    upvotes: 0,
+    is_answered: false,
+    submitted_date_time: new Date()
+  })
+  newQuestion.save(function(err, data) {})
+*/
+
+  Question.find({session_id: req.params.session_id}, function(err, questions) {
+    if (!err) {
+      res.json(questions);
+    } else {
+      res.json({});
+    }
+  })
+  
 })
 
 module.exports = router;
