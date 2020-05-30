@@ -5,12 +5,10 @@ block content
   div(id='sessionApp').row.justify-content-md-center
     div.col-lg-8
       h1 Session
-      p.lead.text-muted This is a running session #{ session_id }
+      p.lead.text-muted Session ID: #{ session_id }
       
-      ul
-        li(v-for='question in questions') {{ question.message }}
-        
-      div(class='card' v-for='question in questions')
-        div(class='card-body') {{ question.message }}
-
+      div(class='card')
+        ul(class='list-group list-group-flush')
+          li(class='list-group-item' v-for='question in questions') {{ question.message }}
+          
   script(src='/javascripts/session.js')
