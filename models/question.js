@@ -5,7 +5,7 @@ const Question = new Schema({
   session_id: String,
   question_id: String,
   question_text: String,
-  upvotes: Integer,
+  upvotes: Number,
   is_answered: Boolean,
   submitted_date_time: Date
 });
