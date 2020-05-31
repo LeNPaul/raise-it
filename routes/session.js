@@ -46,7 +46,7 @@ router.get('/:session_id', function(req, res) {
 /* GET questions from the audience for a session */
 router.get('/questions/:session_id', function(req, res) {
 
-/* Create new question
+  /* Create new question
   var newQuestion = new Question({
     session_id: '1234',
     question_id: '1234',
@@ -56,16 +56,16 @@ router.get('/questions/:session_id', function(req, res) {
     submitted_date_time: new Date()
   })
   newQuestion.save(function(err, data) {})
-*/
+  */
 
   Question.find({session_id: req.params.session_id}, function(err, questions) {
     if (!err) {
       res.json(questions);
     } else {
-      res.json({});
+      res.json([]);
     }
   })
-  
+
 })
 
 module.exports = router;
