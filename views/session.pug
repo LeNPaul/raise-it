@@ -4,7 +4,6 @@ block content
     
   div(id='sessionApp').row.justify-content-md-center
     div.col-lg-8
-      
       div(class='jumbotron')
         h1(class='display-4') {{ info.session_name }}
         p(class='lead') {{ info.session_description }}
@@ -15,7 +14,10 @@ block content
         br
         i(class='far fas fa-id-card')
         |  {{ info.host_contact_info }}
-      
+        br
+        br
+        i(class='fas fa-angle-double-right')
+        |  Session ID: {{ info.session_id }}
       div(class='card')
         ul(class='list-group list-group-flush')
           li(class='list-group-item' v-for='question in questions') {{ question.question_text }}
