@@ -4,6 +4,7 @@ block content
     
   div(id='sessionApp').row.justify-content-md-center
     div.col-lg-8
+      
       div(class='jumbotron')
         h1(class='display-4') {{ info.session_name }}
         p(class='lead') {{ info.session_description }}
@@ -18,8 +19,10 @@ block content
         br
         i(class='fas fa-angle-double-right')
         |  Session ID: {{ info.session_id }}
-      div(class='card')
-        ul(class='list-group list-group-flush')
-          li(class='list-group-item' v-for='question in questions') {{ question.question_text }}
-          
+        
+      h1 Questions
+      p Questions asked by audience members will be displayed below
+      div(class='card mt-3' v-for='question in questions')
+        div(class='card-body') {{ question.question_text }}  
+
   script(src='/javascripts/session.js')
