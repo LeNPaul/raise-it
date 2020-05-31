@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    
+  div(id='sessionApp').row.justify-content-md-center
+    div.col-lg-8
+      
+      h1 Questions
+      p Questions asked by audience members will be displayed below
+      div(class='card mt-3' v-for='question in questions')
+        div(class='card-body') {{ question.question_text }}  
+
+  script(src='/javascripts/session.js')
