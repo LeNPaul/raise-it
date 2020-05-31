@@ -47,7 +47,7 @@ router.get('/:session_id', function(req, res) {
 router.get('/data/:session_id', function(req, res) {
   Session.find({session_id: req.params.session_id}, function(err, data) {
     if (!err) {
-      res.json(data);
+      res.json(data[0]);
     } else {
       res.status(500).json([]);
     }

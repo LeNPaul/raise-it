@@ -1,9 +1,14 @@
 var sessionApp = new Vue({
   el: '#sessionApp',
   data: {
+    info: null,
     questions: null
   },
   methods: {
+    getInfo: function(session_id) {
+      axios
+        .get('/session/data/' + session_id).then(response => this.info = response.data);
+    },
     getQuestions: function(session_id) {
       axios
         .get('/session/questions/' + session_id).then(response =>  this.questions = response.data);
@@ -12,3 +17,4 @@ var sessionApp = new Vue({
 })
 
 sessionApp.getQuestions('1234')
+sessionApp.getInfo('5dee9cbc-8fb1-44fd-b965-8cfdecdd1390')

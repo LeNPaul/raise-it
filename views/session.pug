@@ -4,8 +4,17 @@ block content
     
   div(id='sessionApp').row.justify-content-md-center
     div.col-lg-8
-      h1 Session
-      p.lead.text-muted Session ID: #{ session_id }
+      
+      div(class='jumbotron')
+        h1(class='display-4') {{ info.session_name }}
+        p(class='lead') {{ info.session_description }}
+        hr(class='my-4')
+        i(class='far fa-user') 
+        |  {{ info.host_name }}
+        br
+        br
+        i(class='far fas fa-id-card')
+        |  {{ info.host_contact_info }}
       
       div(class='card')
         ul(class='list-group list-group-flush')
