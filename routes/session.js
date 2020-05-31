@@ -43,6 +43,17 @@ router.get('/:session_id', function(req, res) {
   res.render('session', { user : req.user , session_id: req.params.session_id});
 })
 
+/* GET session information */
+router.get('/data/:session_id', function(req, res) {
+  Session.find({session_id: req.params.session_id}, function(err, data) {
+    if (!err) {
+      res.json(data);
+    } else {
+      res.status(500).json([]);
+    }
+  })
+})
+
 /* GET questions from the audience for a session */
 router.get('/questions/:session_id', function(req, res) {
 
@@ -62,7 +73,7 @@ router.get('/questions/:session_id', function(req, res) {
     if (!err) {
       res.json(questions);
     } else {
-      res.json([]);
+      res.status(500).json([]);
     }
   })
 
