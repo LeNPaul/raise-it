@@ -23,3 +23,6 @@ var sessionApp = new Vue({
 
 sessionApp.getQuestions('1234')
 sessionApp.getInfo('5dee9cbc-8fb1-44fd-b965-8cfdecdd1390')
+
+// Sample code for regularly calling a function
+// https://stackoverflow.com/questions/36572540/vue-js-auto-reload-refresh-data-with-timer
