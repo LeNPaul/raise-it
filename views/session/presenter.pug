@@ -10,4 +10,8 @@ block content
       div(class='card mt-3' v-for='question in questions')
         div(class='card-body') {{ question.question_text }}  
 
+  div(id='testApp')
+    router-link(to='/foo')
+    router-view
+
   script(src='/javascripts/session.js')
