@@ -25,12 +25,10 @@ sessionApp.getQuestions('1234')
 sessionApp.getInfo('5dee9cbc-8fb1-44fd-b965-8cfdecdd1390')
 
 // Example routes
-const Foo = { template: '<div>fooasdfasdf</div>' }
-const Bar = { template: '<div>bar</div>' }
+const Foo = { template: '<div>User {{ $route.params.id }}</div>' }
 
 const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
+  { path: '/id/:id', component: Foo }
 ]
 
 const router = new VueRouter({
