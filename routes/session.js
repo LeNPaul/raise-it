@@ -39,8 +39,8 @@ router.post('/start', (req, res) => {
 });
 
 /* GET page for viewing session as presenter */
-router.get('/presenter/:session_id', function(req, res) {
-  res.render('session/presenter', { user : req.user , session_id: req.params.session_id});
+router.get('/presenter', function(req, res) {
+  res.render('session/presenter', { user : req.user });
 })
 
 /* GET session information */

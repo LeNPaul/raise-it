@@ -21,8 +21,8 @@ var sessionApp = new Vue({
   }
 })
 
-sessionApp.getQuestions('1234')
-sessionApp.getInfo('5dee9cbc-8fb1-44fd-b965-8cfdecdd1390')
+// sessionApp.getQuestions('1234')
+// sessionApp.getInfo('5dee9cbc-8fb1-44fd-b965-8cfdecdd1390')
 
 // Example routes
 const Foo = { template: '<div>User {{ $route.params.id }}</div>' }
