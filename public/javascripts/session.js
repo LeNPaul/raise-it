@@ -36,5 +36,12 @@ const router = new VueRouter({
 })
 
 const app = new Vue({
+  methods: {
+    getParams: function() {
+      console.log(this.$route.params.id);
+    }
+  },
   router
 }).$mount('#testApp')
+
+app.getParams();
