@@ -1,26 +1,3 @@
-var sessionApp = new Vue({
-  el: '#sessionApp',
-  data: {
-    info: null,
-    questions: null
-  },
-  created () {
-    this.getQuestions();
-    this.timer = setInterval(this.getQuestions, 3000)
-  },
-  methods: {
-    getInfo: function(session_id) {
-      axios
-        .get('/session/data/' + session_id).then(response => this.info = response.data);
-    },
-    getQuestions: function(session_id) {
-      console.log(session_id);
-      axios
-        .get('/session/questions/' + session_id).then(response =>  this.questions = response.data);
-    }
-  }
-})
-
 // sessionApp.getQuestions('1234')
 // sessionApp.getInfo('5dee9cbc-8fb1-44fd-b965-8cfdecdd1390')
 
@@ -35,7 +12,7 @@ const router = new VueRouter({
   routes
 })
 
-const app = new Vue({
+const sessionApp = new Vue({
   data: {
     info: null,
     questions: null
@@ -45,20 +22,14 @@ const app = new Vue({
     this.timer = setInterval(this.getQuestions, 3000)
   },
   methods: {
-    getParams: function() {
-      console.log(this.$route.params.id);
-    },
     getInfo: function(session_id) {
       axios
         .get('/session/data/' + session_id).then(response => this.info = response.data);
     },
-    getQuestions: function(session_id) {
-      console.log(session_id);
+    getQuestions: function() {
       axios
-        .get('/session/questions/' + session_id).then(response =>  this.questions = response.data);
+        .get('/session/questions/' + this.$route.params.id).then(response =>  this.questions = response.data);
     }
   },
   router
-}).$mount('#testApp')
-
-app.getParams();
+}).$mount('#sessionApp')
