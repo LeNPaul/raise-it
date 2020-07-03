@@ -56,19 +56,6 @@ router.get('/data/:session_id', function(req, res) {
 
 /* GET questions from the audience for a session */
 router.get('/questions/:session_id', function(req, res) {
-
-  /* Create new question
-  var newQuestion = new Question({
-    session_id: '1234',
-    question_id: '1234',
-    question_text: 'This is placeholder question text',
-    upvotes: 0,
-    is_answered: false,
-    submitted_date_time: new Date()
-  })
-  newQuestion.save(function(err, data) {})
-  */
-
   Question.find({session_id: req.params.session_id}, function(err, questions) {
     if (!err) {
       res.json(questions);
@@ -76,7 +63,24 @@ router.get('/questions/:session_id', function(req, res) {
       res.status(500).json([]);
     }
   })
+})
 
+/* TEST endpoint to create new question */
+router.get('/create_question', function(req, res) {
+  // Create new question
+  var newQuestion = new Question({
+    session_id: '1234',
+    question_id: '1234',
+    question_text: 'This is a new placeholder question text',
+    upvotes: 0,
+    is_answered: false,
+    submitted_date_time: new Date()
+  })
+  newQuestion.save(function(err, data) {
+    if (err) {res.json({success: false})} else {
+      res.json({success: true});
+    }
+  })
 })
 
 module.exports = router;
