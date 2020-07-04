@@ -65,6 +65,25 @@ router.get('/questions/:session_id', function(req, res) {
   })
 })
 
+/* POST update the status of a question to either answered or unanswered */
+// curl --header "Content-Type: application/json" --data '{"is_answered": false, "question_id": "1234"}' http://localhost:8080/session/question
+router.post('/question', function(req, res) {
+  Question.find({question_id: req.body.question_id}, function(err, question) {
+    Question.findByIdAndUpdate(
+      question[0].id,
+      {is_answered: req.body.is_answered},
+      { new: true },
+      function(err, update) {
+        if (err == null) {
+          res.json({Success: true});
+        } else {
+          res.json({Success: false});
+        }
+      }
+    )
+  })
+})
+
 /* TEST endpoint to create new question */
 router.get('/create_question', function(req, res) {
   // Create new question
