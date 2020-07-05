@@ -29,6 +29,15 @@ const sessionApp = new Vue({
     getQuestions: function() {
       axios
         .get('/session/questions/' + this.$route.params.id).then(response =>  this.questions = response.data);
+    },
+    updateQuestion: function(question_id, is_answered) {
+      if (is_answered) {
+        axios
+          .post('/session/question', {question_id: question_id, is_answered: false}).then(response => console.log(response.data));
+      } else {
+        axios
+          .post('/session/question', {question_id: question_id, is_answered: true}).then(response => console.log(response.data));
+      }
     }
   },
   router

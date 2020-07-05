@@ -9,7 +9,7 @@ block content
       p Questions asked by audience members will be displayed below
       div(class='card mt-3' v-for='question in questions')
         div(class='card-body') {{ question.question_text }}
-          button(type='submit' class='btn btn-primary float-right')
+          button(type='submit' class='btn btn-primary float-right' v-on:click='updateQuestion(question.question_id, question.is_answered)')
             i(class="fas fa-check-circle")
 
       // router-link(to='/foo')
