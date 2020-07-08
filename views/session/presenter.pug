@@ -9,17 +9,13 @@ block content
       p Questions asked by audience members will be displayed below
       
       h3 New Questions
-      
-      div(class='card mt-3' v-for='question in questions')
+      div(class='card mb-3' v-for='question in questions')
         div(class='card-body') {{ question.question_text }}
           button(type='submit' class='btn btn-primary float-right' v-on:click='updateQuestion(question.question_id, question.is_answered)')
             i(class="fas fa-check-circle")
 
-      hr 
-
       h3 Answered
-      
-      div(class='card mt-3' v-for='question in questions')
+      div(class='card mb-3' v-for='question in questions')
         div(class='card-body') {{ question.question_text }}
           button(type='submit' class='btn btn-primary float-right' v-on:click='updateQuestion(question.question_id, question.is_answered)')
             i(class="fas fa-check-circle")
