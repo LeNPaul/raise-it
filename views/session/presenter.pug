@@ -18,7 +18,7 @@ block content
       div(class='card mb-3' v-for='question in questions' v-if='question.is_answered')
         div(class='card-body') {{ question.question_text }}
           button(type='submit' class='btn btn-secondary float-right' v-on:click='updateQuestion(question.question_id, question.is_answered)')
-            i(class="fas fa-check-circle")
+            i(class='fas fa-circle')
 
       // router-link(to='/foo')
       // router-view
