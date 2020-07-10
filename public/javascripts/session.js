@@ -15,7 +15,10 @@ const router = new VueRouter({
 const sessionApp = new Vue({
   data: {
     info: null,
-    questions: null
+    questions: null,
+    buttonObject: {
+      active: true
+    }
   },
   created () {
     this.getQuestions();
