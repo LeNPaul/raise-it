@@ -18,7 +18,8 @@ const sessionApp = new Vue({
     questions: null,
     buttonObject: {
       active: true
-    }
+    },
+    isActive: true
   },
   created () {
     this.getQuestions();
