@@ -2,7 +2,7 @@ extends ../layout
 
 block content
     
-  div(id='sessionApp' v-bind:class='{ active: isActive }').row.justify-content-md-center
+  div(id='sessionApp').row.justify-content-md-center
     div.col-lg-8
       
       h1 Questions
@@ -11,14 +11,15 @@ block content
       h3 New Questions
       div(class='card mb-3' v-for='question in questions' v-if='!question.is_answered')
         div(class='card-body') {{ question.question_text }}
-          button(type='submit' class='btn btn-primary float-right' v-on:click='updateQuestion(question.question_id, question.is_answered)')
-            i(class="fas fa-check-circle")
+          button(type='submit' class='btn btn-primary float-right' v-on:click='updateQuestion(question.question_id, question.is_answered), getQuestions()')
+            i(class='fas fa-circle')
 
       h3 Answered
       div(class='card mb-3' v-for='question in questions' v-if='question.is_answered')
         div(class='card-body') {{ question.question_text }}
-          button(type='submit' class='btn btn-secondary float-right' v-on:click='updateQuestion(question.question_id, question.is_answered)')
-            i(class='fas fa-circle')
+          button(type='submit' class='btn btn-secondary float-right' v-on:click='updateQuestion(question.question_id, question.is_answered), getQuestions()')
+            i(class="fas fa-check-circle")
+            
 
       // router-link(to='/foo')
       // router-view
