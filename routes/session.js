@@ -39,8 +39,11 @@ router.post('/start', (req, res) => {
 });
 
 /* POST request for ending session */
+// curl --header "Content-Type: application/json" --data '{"session_id":"6d4e8ac0-b7bc-4887-9352-cfd5b0d92b25"}' localhost:8080/session/end
 router.post('/end', (req, res) => {
-  res.json({success: true});
+  Session.find({session_id: req.body.session_id}, function(err, data) {
+    res.json(data[0]);
+  })
 });
 
 /* GET page for viewing session as presenter */
