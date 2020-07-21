@@ -38,6 +38,11 @@ router.post('/start', (req, res) => {
   })
 });
 
+/* POST request for ending session */
+router.post('/end', (req, res) => {
+  res.json({success: true});
+});
+
 /* GET page for viewing session as presenter */
 router.get('/presenter', function(req, res) {
   res.render('session/presenter', { user : req.user });
