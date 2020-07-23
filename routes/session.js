@@ -42,19 +42,23 @@ router.post('/start', (req, res) => {
 // curl --header "Content-Type: application/json" --data '{"session_id":"6d4e8ac0-b7bc-4887-9352-cfd5b0d92b25"}' localhost:8080/session/end
 router.post('/end', (req, res) => {
   Session.find({session_id: req.body.session_id}, function(err, session) {
-    Session.findByIdAndUpdate(
-      session[0]._id,
-      {end_date_time: new Date()},
-      { new: true },
-      function(err, update) {
-        if (err == null) {
-          res.json({Success: true});
-        } else {
-          console.log(err, update);
-          res.json({Success: false});
+    if(session[0]) {
+      Session.findByIdAndUpdate(
+        session[0]._id,
+        {end_date_time: new Date()},
+        { new: true },
+        function(err, update) {
+          if (err == null) {
+            res.json({Success: true});
+          } else {
+            console.log(err, update);
+            res.json({Success: false});
+          }
         }
-      }
-    )
+      )
+    } else{
+      res.json({Success: false});
+    }
   })
 });
 
