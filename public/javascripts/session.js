@@ -38,6 +38,10 @@ const sessionApp = new Vue({
         axios
           .post('/session/question', {question_id: question_id, is_answered: true}).then(response => console.log(response.data));
       }
+    },
+    endSession: function() {
+      axios
+        .post('/session/end', {session_id: this.$route.params.id}).then(response => console.log(response.data));
     }
   },
   router
