@@ -7,7 +7,8 @@ block content
       
       h1 Questions
       p Questions asked by audience members will be displayed below
-      button(type='submit' class='btn btn-danger mb-3' v-on:click='endSession()') End Session
+      div(class='alert alert-primary' role='alert' v-if='!isSession') Session has been ended by the host on {{ info.end_date_time }}
+      button(type='submit' class='btn btn-danger mb-3' v-if='isSession' v-on:click='endSession(), loadSession()') End Session
       
       h3 New Questions
       div(class='card mb-3' v-for='question in questions' v-if='!question.is_answered')
@@ -20,7 +21,6 @@ block content
         div(class='card-body') {{ question.question_text }}
           button(type='submit' class='btn btn-secondary float-right' v-on:click='updateQuestion(question.question_id, question.is_answered), getQuestions()')
             i(class="fas fa-check-circle")
-            
 
       // router-link(to='/foo')
       // router-view

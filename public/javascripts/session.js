@@ -1,6 +1,3 @@
-// sessionApp.getQuestions('1234')
-// sessionApp.getInfo('5dee9cbc-8fb1-44fd-b965-8cfdecdd1390')
-
 // Example routes
 const Foo = { template: '<div>User {{ $route.params.id }}</div>' }
 
@@ -15,17 +12,14 @@ const router = new VueRouter({
 const sessionApp = new Vue({
   data: {
     info: null,
-    questions: null
+    questions: null,
+    isSession: true
   },
   created () {
     this.loadSession();
     this.timer = setInterval(this.getQuestions, 3000);
   },
   methods: {
-    getInfo: function(session_id) {
-      axios
-        .get('/session/data/' + session_id).then(response => this.info = response.data);
-    },
     getQuestions: function() {
       axios
         .get('/session/questions/' + this.$route.params.id).then(response =>  this.questions = response.data);
@@ -45,7 +39,13 @@ const sessionApp = new Vue({
     },
     loadSession: function() {
       this.getQuestions();
-      this.getInfo(this.$route.params.id);
+      axios
+        .get('/session/data/' + this.$route.params.id).then(response => {
+          this.info = response.data
+          if(response.data.end_date_time) {
+            this.isSession = false;
+          }
+        });
     }
   },
   router
