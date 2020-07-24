@@ -1,11 +1,11 @@
-extends layout
+extends ../layout
 
 block content
     
   div(id='sessionApp').row.justify-content-md-center
     div.col-lg-8
       
-      div(class='jumbotron')
+      div(class='jumbotron' v-if='info')
         h1(class='display-4') {{ info.session_name }}
         p(class='lead') {{ info.session_description }}
         hr(class='my-4')

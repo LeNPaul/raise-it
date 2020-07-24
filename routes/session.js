@@ -67,6 +67,11 @@ router.get('/presenter', function(req, res) {
   res.render('session/presenter', { user : req.user });
 })
 
+/* GET page for viewing session as audience */
+router.get('/audience', function(req, res) {
+  res.render('session/audience', { user : req.user });
+})
+
 /* GET session information */
 router.get('/data/:session_id', function(req, res) {
   Session.find({session_id: req.params.session_id}, function(err, data) {
