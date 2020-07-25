@@ -12,6 +12,5 @@ block content
           input#inputSessionId.form-control(type='text', v-model='sessionId')
           small(id="hostContactHelp" class="form-text text-muted") 
             | Enter the session ID provided by the presenter
-        a(href='/join')
-          button.btn.btn-primary(type='button') Join
+        button.btn.btn-primary(v-on:click='joinSession' type='button') Join
   script(src='/javascripts/start.js')
