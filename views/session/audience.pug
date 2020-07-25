@@ -22,6 +22,7 @@ block content
         
       h1 Questions
       p Questions asked by audience members will be displayed below
+      div(class='alert alert-primary' role='alert' v-if='!isSession') Session has been ended by the host on {{ info.end_date_time }}
       div(class='card mt-3' v-for='question in questions')
         div(class='card-body') {{ question.question_text }}  
 

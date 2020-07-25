@@ -17,10 +17,10 @@ const sessionApp = new Vue({
   },
   created () {
     this.loadSession();
-    this.timer = setInterval(this.getQuestions, 3000);
+    this.timer = setInterval(this.loadSession, 3000);
   },
   methods: {
-    getQuestions: function() {
+    loadQuestions: function() {
       axios
         .get('/session/questions/' + this.$route.params.id).then(response =>  this.questions = response.data);
     },
@@ -38,7 +38,7 @@ const sessionApp = new Vue({
         .post('/session/end', {session_id: this.$route.params.id}).then(response => console.log(response.data));
     },
     loadSession: function() {
-      this.getQuestions();
+      this.loadQuestions();
       axios
         .get('/session/data/' + this.$route.params.id).then(response => {
           this.info = response.data
