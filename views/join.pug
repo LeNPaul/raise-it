@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    
+  div(id='formApp').row.justify-content-md-center
+    div.col-lg-8
+      h1 Join Session
+      p.lead.text-muted Ask questions as an audience member during a presentation.
+      form
+        .form-group
+          label(for='inputSessionId') Session ID
+          input#inputSessionId.form-control(type='text', v-model='sessionId')
+          small(id="hostContactHelp" class="form-text text-muted") 
+            | Enter the session ID provided by the presenter
+        a(href='/join')
+          button.btn.btn-primary(type='button') Join
+  script(src='/javascripts/start.js')
