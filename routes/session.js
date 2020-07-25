@@ -18,8 +18,9 @@ router.post('/start', (req, res) => {
       return v.toString(16);
     });
   }
+  var session_id = uuidv4();
   var newSession = new Session({
-    session_id: uuidv4(),
+    session_id: session_id,
     session_name: req.body.session_name,
     session_description: req.body.session_description,
     host_name: req.body.host_name,
@@ -29,6 +30,7 @@ router.post('/start', (req, res) => {
   newSession.save(function(err, data) {
     if (err) {res.json({success: false})} else {
       res.json({
+        session_id: session_id,
         session_name: req.body.session_name,
         session_description: req.body.session_description,
         host_name: req.body.host_name,
