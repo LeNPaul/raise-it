@@ -38,6 +38,11 @@ router.post('/start', (req, res) => {
   })
 });
 
+/* GET page for joining session */
+router.get('/join', function(req, res) {
+  res.render('join', { user : req.user });
+});
+
 /* POST request for ending session */
 // curl --header "Content-Type: application/json" --data '{"session_id":"6d4e8ac0-b7bc-4887-9352-cfd5b0d92b25"}' localhost:8080/session/end
 router.post('/end', (req, res) => {
