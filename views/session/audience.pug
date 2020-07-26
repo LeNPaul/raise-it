@@ -22,12 +22,13 @@ block content
         
       h1 Questions
       
-      p(v-if='isSession') Submit your questions below:
-      form(v-if='isSession')
-        .form-group
-          textarea#lessonNotes.form-control(rows='3')
-        button.btn.btn-secondary(type='button', onclick='updateNotes()') Submit Question
-      div(class='alert alert-primary mt-3' role='alert' v-if='!isSession') Session has been ended by the host on {{ info.end_date_time }}
+      div(v-if='isSession')
+        p Submit your questions below:
+        form
+          .form-group
+            textarea#lessonNotes.form-control(rows='3')
+          button.btn.btn-secondary(type='button', onclick='updateNotes()') Submit Question
+      div(v-if='!isSession' class='alert alert-primary mt-3' role='alert') Session has been ended by the host on {{ info.end_date_time }}
       
       p(class='mt-4') Questions asked by audience members will be displayed below
       div(class='card mt-3' v-for='question in questions')
