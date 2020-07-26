@@ -26,8 +26,8 @@ block content
         p Submit your questions below:
         form
           .form-group
-            textarea#lessonNotes.form-control(rows='3')
-          button.btn.btn-secondary(type='button', onclick='updateNotes()') Submit Question
+            textarea(v-model='questionText')#questionText.form-control(rows='3')
+          button.btn.btn-secondary(type='button', v-on:click='submitQuestion()') Submit Question
       div(v-if='!isSession' class='alert alert-primary mt-3' role='alert') Session has been ended by the host on {{ info.end_date_time }}
       
       p(class='mt-4') Questions asked by audience members will be displayed below

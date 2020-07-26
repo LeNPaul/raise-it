@@ -13,6 +13,7 @@ const sessionApp = new Vue({
   data: {
     info: null,
     questions: null,
+    questionText: null,
     isSession: true
   },
   created () {
@@ -23,6 +24,13 @@ const sessionApp = new Vue({
     loadQuestions: function() {
       axios
         .get('/session/questions/' + this.$route.params.id).then(response =>  this.questions = response.data);
+    },
+    submitQuestion: function() {
+      if (this.questionText != null) {
+        axios
+          .post('/session/question/new', {session_id: this.$route.params.id, question_text: this.questionText})
+        this.questionText = null;
+      }
     },
     updateQuestion: function(question_id, is_answered) {
       if (is_answered) {
