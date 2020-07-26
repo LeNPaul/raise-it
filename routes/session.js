@@ -16,6 +16,21 @@ router.get('/start', function(req, res) {
   res.render('start', { user : req.user });
 });
 
+/* GET page for joining session */
+router.get('/join', function(req, res) {
+  res.render('join', { user : req.user });
+});
+
+/* GET page for viewing session as presenter */
+router.get('/presenter', function(req, res) {
+  res.render('session/presenter', { user : req.user });
+})
+
+/* GET page for viewing session as audience */
+router.get('/audience', function(req, res) {
+  res.render('session/audience', { user : req.user });
+})
+
 /* POST request for starting session */
 // curl --header "Content-Type: application/json" --data '{"session_id":"asdf", "session_name": "asdfasfdsf"}' localhost:3000/session/start
 router.post('/start', (req, res) => {
@@ -41,11 +56,6 @@ router.post('/start', (req, res) => {
   })
 });
 
-/* GET page for joining session */
-router.get('/join', function(req, res) {
-  res.render('join', { user : req.user });
-});
-
 /* POST request for ending session */
 // curl --header "Content-Type: application/json" --data '{"session_id":"6d4e8ac0-b7bc-4887-9352-cfd5b0d92b25"}' localhost:8080/session/end
 router.post('/end', (req, res) => {
@@ -69,16 +79,6 @@ router.post('/end', (req, res) => {
     }
   })
 });
-
-/* GET page for viewing session as presenter */
-router.get('/presenter', function(req, res) {
-  res.render('session/presenter', { user : req.user });
-})
-
-/* GET page for viewing session as audience */
-router.get('/audience', function(req, res) {
-  res.render('session/audience', { user : req.user });
-})
 
 /* GET session information */
 router.get('/data/:session_id', function(req, res) {
@@ -134,7 +134,9 @@ router.post('/question/new', function(req, res) {
     submitted_date_time: new Date()
   })
   newQuestion.save(function(err, data) {
-    if (err) {res.json({success: false})} else {
+    if (err) {
+      res.json({success: false})
+    } else {
       res.json({success: true});
     }
   })
