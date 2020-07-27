@@ -121,6 +121,28 @@ router.post('/question', function(req, res) {
   })
 })
 
+/* POST update the vote count of a question */
+// curl --header "Content-Type: application/json" --data '{"question_id": "52a3d05e-f3de-4b6f-8f7e-31442b13f0d3", "vote_count": 1}' http://localhost:8080/session/question/vote
+router.post('/question/vote', function(req, res) {
+  Question.find({question_id: req.body.question_id}, function(err, question) {
+    // Add previous vote count with the new vote
+    var voteCount = question[0].upvotes + req.body.vote_count
+    Question.findByIdAndUpdate(
+      question[0].id,
+      {upvotes: voteCount},
+      { new: true },
+      function(err, update) {
+        if (err == null) {
+          res.json({Success: true});
+        } else {
+          res.json({Success: false});
+        }
+      }
+    )
+
+  })
+})
+
 /* POST create a new question */
 // curl --header "Content-Type: application/json" --data '{"session_id": "b3b3d326-fb14-46ed-9d0e-2a0a094f5bb0", "question_text": "Hello, its me again, I guess I can not use apostrophes"}' http://localhost:8080/session/question/new
 router.post('/question/new', function(req, res) {
