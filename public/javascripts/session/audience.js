@@ -48,4 +48,4 @@ const sessionApp = new Vue({
     }
   },
   router
-}).$mount('#sessionApp')
+}).$mount('#audienceSessionApp')
