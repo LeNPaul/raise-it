@@ -41,6 +41,10 @@ const sessionApp = new Vue({
           .post('/session/question', {question_id: question_id, is_answered: true}).then(response => console.log(response.data));
       }
     },
+    updateVotes: function(question_id, vote_count) {
+      axios
+        .post('/session/question/vote', {question_id: question_id, vote_count: vote_count}).then(response => console.log(response.data));
+    },
     endSession: function() {
       axios
         .post('/session/end', {session_id: this.$route.params.id}).then(response => console.log(response.data));
