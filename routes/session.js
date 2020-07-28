@@ -104,7 +104,7 @@ router.get('/questions/:session_id', function(req, res) {
 
 /* POST update the status of a question to either answered or unanswered */
 // curl --header "Content-Type: application/json" --data '{"is_answered": false, "question_id": "1234"}' http://localhost:8080/session/question
-router.post('/question', function(req, res) {
+router.post('/question/status', function(req, res) {
   Question.find({question_id: req.body.question_id}, function(err, question) {
     Question.findByIdAndUpdate(
       question[0].id,

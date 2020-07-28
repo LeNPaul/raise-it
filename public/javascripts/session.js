@@ -35,10 +35,10 @@ const sessionApp = new Vue({
     updateQuestion: function(question_id, is_answered) {
       if (is_answered) {
         axios
-          .post('/session/question', {question_id: question_id, is_answered: false}).then(response => console.log(response.data));
+          .post('/session/question/status', {question_id: question_id, is_answered: false}).then(response => console.log(response.data));
       } else {
         axios
-          .post('/session/question', {question_id: question_id, is_answered: true}).then(response => console.log(response.data));
+          .post('/session/question/status', {question_id: question_id, is_answered: true}).then(response => console.log(response.data));
       }
     },
     updateVotes: function(question_id, vote_count) {
