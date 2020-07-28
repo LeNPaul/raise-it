@@ -95,6 +95,9 @@ router.get('/data/:session_id', function(req, res) {
 router.get('/questions/:session_id', function(req, res) {
   Question.find({session_id: req.params.session_id}, function(err, questions) {
     if (!err) {
+      questions.sort(function(a, b) {
+        return b.upvotes - a.upvotes;
+      });
       res.json(questions);
     } else {
       res.status(500).json([]);
