@@ -32,22 +32,9 @@ const sessionApp = new Vue({
         this.questionText = null;
       }
     },
-    updateQuestion: function(question_id, is_answered) {
-      if (is_answered) {
-        axios
-          .post('/session/question/status', {question_id: question_id, is_answered: false}).then(response => console.log(response.data));
-      } else {
-        axios
-          .post('/session/question/status', {question_id: question_id, is_answered: true}).then(response => console.log(response.data));
-      }
-    },
     updateVotes: function(question_id, vote_count) {
       axios
         .post('/session/question/vote', {question_id: question_id, vote_count: vote_count}).then(response => console.log(response.data));
-    },
-    endSession: function() {
-      axios
-        .post('/session/end', {session_id: this.$route.params.id}).then(response => console.log(response.data));
     },
     loadSession: function() {
       this.loadQuestions();
