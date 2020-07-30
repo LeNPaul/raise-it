@@ -7,6 +7,7 @@ const Session = new Schema({
   session_description: String,
   host_name: String,
   host_contact_info: String,
+  username: String,
   start_date_time: Date,
   end_date_time: Date
 });
