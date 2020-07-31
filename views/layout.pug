@@ -34,6 +34,8 @@ html
                 a.nav-link(href='/register') Register
           if (user)
             ul.navbar-nav.ml-auto
+              li.nav-item
+                a.nav-link.disabled #{ user.username }
               li.nav-item.active
                 a.nav-link(href='/logout') Logout
                 
