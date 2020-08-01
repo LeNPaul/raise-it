@@ -6,7 +6,8 @@ block content
     div.col-lg-8
       h1 Start New Session
       p.lead.text-muted Allow audience members to ask questions during a presentation.
-      div.alert.alert-primary Logged in as #{ user.username }
+      if (user)
+        div.alert.alert-primary Logged in as #{ user.username }
       form
         .form-group
           label(for='inputSessionName') Session Name
