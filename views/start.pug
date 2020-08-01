@@ -7,7 +7,8 @@ block content
       h1 Start New Session
       p.lead.text-muted Allow audience members to ask questions during a presentation.
       if (user)
-        div.alert.alert-primary Logged in as #{ user.username }
+        - var username = `${ user.username }`
+        div.alert.alert-primary(user=username) Logged in as #{ user.username }
       form
         .form-group
           label(for='inputSessionName') Session Name
@@ -15,15 +16,9 @@ block content
         .form-group
           label(for='inputSessionDescription') Session Description
           input#inputSessionDescription.form-control(type='text', v-model='sessionDescription')
-        if (!user)
-          .form-group
-            label(for='inputHostName') Host Name
-            input#inputHostName.form-control(type='text', v-model='hostName')
-        if (user)
-          - var username = `${ user.username }`
-          .form-group
-            label(for='inputHostName') Host Name
-            input#inputHostName.form-control(type='text', v-model='hostName' placeholder=username readonly) 
+        .form-group
+          label(for='inputHostName') Host Name
+          input#inputHostName.form-control(type='text', v-model='hostName')
         .form-group
           label(for='inputHostContact') Host Contact Information
           input#inputHostContact.form-control(type='text', v-model='hostContact')
