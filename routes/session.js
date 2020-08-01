@@ -36,6 +36,17 @@ router.get('/dashboard', function(req, res) {
   res.render('session/dashboard', { user : req.user });
 })
 
+/* GET get sessions that were started by a user */
+router.get('/sessions/:username', function(req, res) {
+  Session.find({user_name: req.params.username}, function(err, sessions) {
+    if (!err) {
+      res.json(sessions);
+    } else {
+      res.status(500).json([]);
+    }
+  })
+})
+
 /* POST request for starting session */
 // curl --header "Content-Type: application/json" --data '{"session_id":"asdf", "session_name": "asdfasfdsf"}' localhost:3000/session/start
 router.post('/start', (req, res) => {
