@@ -17,6 +17,9 @@ const dashboardApp = new Vue({
     getSessions: function() {
       axios
         .get('/session/sessions/' + this.$route.params.username).then(response => this.sessions = response.data);
+    },
+    viewSession: function(session_id) {
+      console.log(session_id);
     }
   },
   router

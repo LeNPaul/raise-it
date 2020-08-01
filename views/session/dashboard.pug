@@ -3,7 +3,7 @@ extends ../layout
 block content
     
   div(id='dashboardApp').row.justify-content-md-center
-    div.col-lg-8(v-if='dashboard')
+    div.col-lg-8
       h1 Dashboard
       if (user)
         - var username = `${ user.username }`
