@@ -31,6 +31,11 @@ router.get('/audience', function(req, res) {
   res.render('session/audience', { user : req.user });
 })
 
+/* GET page for user dashboard */
+router.get('/dashboard', function(req, res) {
+  res.render('session/dashboard', { user : req.user });
+})
+
 /* POST request for starting session */
 // curl --header "Content-Type: application/json" --data '{"session_id":"asdf", "session_name": "asdfasfdsf"}' localhost:3000/session/start
 router.post('/start', (req, res) => {
