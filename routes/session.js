@@ -39,6 +39,7 @@ router.post('/start', (req, res) => {
     session_id: session_id,
     session_name: req.body.session_name,
     session_description: req.body.session_description,
+    user_name: req.body.user_name,
     host_name: req.body.host_name,
     host_contact_info: req.body.host_contact_info,
     start_date_time: new Date()
