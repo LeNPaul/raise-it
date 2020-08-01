@@ -47,6 +47,11 @@ router.get('/sessions/:username', function(req, res) {
   })
 })
 
+/* get page for viewing past session */
+router.get('/dashboard/session', function(req, res) {
+  res.render('session/archive', { user : req.user});
+})
+
 /* POST request for starting session */
 // curl --header "Content-Type: application/json" --data '{"session_id":"asdf", "session_name": "asdfasfdsf"}' localhost:3000/session/start
 router.post('/start', (req, res) => {
