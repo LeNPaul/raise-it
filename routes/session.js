@@ -48,7 +48,7 @@ router.get('/sessions/:username', function(req, res) {
 })
 
 /* get page for viewing past session */
-router.get('/dashboard/session', function(req, res) {
+router.get('/dashboard/archive', function(req, res) {
   res.render('session/archive', { user : req.user});
 })
 

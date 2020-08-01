@@ -2,7 +2,7 @@ extends ../layout
 
 block content
     
-  div(id='audienceSessionApp').row.justify-content-md-center
+  div(id='archiveApp').row.justify-content-md-center
     div.col-lg-8
       
       div(class='jumbotron' v-if='info')
@@ -26,9 +26,5 @@ block content
       div(class='card mt-3' v-for='question in questions')
         div(class='card-body') {{ question.question_text }}
           span(class='badge badge-secondary ml-3') {{ question.upvotes }}
-          button(type='submit' class='btn btn-secondary float-right ml-3' v-on:click='updateVotes(question.question_id, -1), loadQuestions()')
-            i(class="fas fa-arrow-alt-circle-down") 
-          button(type='submit' class='btn btn-secondary float-right' v-on:click='updateVotes(question.question_id, +1), loadQuestions()')
-            i(class="fas fa-arrow-alt-circle-up")
 
-  script(src='/javascripts/session/audience.js')
+  script(src='/javascripts/archive.js')
