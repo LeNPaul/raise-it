@@ -11,8 +11,12 @@ block content
       // Placeholder
       div(class='card mt-3' v-for='session in sessions')
         div(class='card-header') {{ session.session_name }}
-        div(class='card-body') {{ session.session_description }}
-          button(type='submit' class='btn btn-secondary float-right ml-3')
+        div(class='card-body')
+          p(class='card-text') {{ session.session_description }}
+          p(class='card-text')
+            small(class='text-muted') {{ session.start_date_time }}
+          button(type='submit' class='btn btn-secondary')
+            | View 
             i(class="fas fa-arrow-alt-circle-right")
       
   script(src='/javascripts/dashboard.js')
