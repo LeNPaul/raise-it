@@ -34,8 +34,11 @@ html
                 a.nav-link(href='/register') Register
           if (user)
             ul.navbar-nav.ml-auto
-              li.nav-item
-                a.nav-link.disabled #{ user.username }
+              li.nav-item.dropdown
+                a(class='nav-link dropdown-toggle' data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") #{ user.username }
+                div(class='dropdown-menu')
+                  - var username = `${ user.username }`
+                  a.dropdown-item(href='/session/dashboard#/user/' + username) Dashboard
               li.nav-item.active
                 a.nav-link(href='/logout') Logout
                 
