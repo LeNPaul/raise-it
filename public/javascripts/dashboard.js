@@ -19,7 +19,7 @@ const dashboardApp = new Vue({
         .get('/session/sessions/' + this.$route.params.username).then(response => this.sessions = response.data);
     },
     viewSession: function(session_id) {
-      console.log(session_id);
+      window.location.href = '/session/dashboard/archive#/id/' + session_id;
     }
   },
   router
