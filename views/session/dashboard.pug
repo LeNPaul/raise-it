@@ -3,19 +3,18 @@ extends ../layout
 block content
     
   div(id='dashboardApp').row.justify-content-md-center
-    div.col-lg-8
+    div.col-lg-8(v-if='dashboard')
       h1 Dashboard
       if (user)
         - var username = `${ user.username }`
         p.lead.text-muted(ref='user' username=username) View past sessions started by #{ user.username }
-      // Placeholder
       div(class='card mt-3' v-for='session in sessions')
         div(class='card-header') {{ session.session_name }}
         div(class='card-body')
           p(class='card-text') {{ session.session_description }}
           p(class='card-text')
             small(class='text-muted') {{ session.start_date_time }}
-          button(type='submit' class='btn btn-secondary')
+          button(class='btn btn-secondary' v-on:click='viewSession(session.session_id)' type='button')
             | View 
             i(class="fas fa-arrow-alt-circle-right")
       
