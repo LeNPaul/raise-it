@@ -26,9 +26,8 @@ sudo apt install -y npm
 sudo npm install pm2@latest -g
 
 # Pull code from GitHub
-#cd ~
-#git clone https://github.com/LeNPaul/raise-it.git
-#cd raise-it
-#npm install
-
-#pm2 start bin/www
+cd ~
+git clone https://github.com/LeNPaul/raise-it.git
+cd raise-it
+npm install
+pm2 start ./bin/www -n raise-it
