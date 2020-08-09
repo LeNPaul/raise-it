@@ -28,4 +28,4 @@ sudo apt-get update
 sudo apt-get install -y certbot python3-certbot-nginx
 
 # Configure the certificate (nginx already configured to read certificate file)
-sudo certbot certonly --nginx
+sudo certbot --nginx
